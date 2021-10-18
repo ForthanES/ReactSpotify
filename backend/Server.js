@@ -10,9 +10,9 @@ app.use(express.json());
 app.post('/refresh', (req, res) => {
   const refreshToken = req.body.refreshToken;
   const spotifyApi = new SpotifyWebApi({
-    redirectUri: 'http://localhost:3000/',
-    clientId: 'cc515bd3b6d64031b087684733ebd448',
-    clientSecret: 'f4066951ebe1400fa17d999fa7bf80da',
+    redirectUri: process.env.REACT_APP_REDIRECT_URI,
+    clientId: process.env.REACT_APP_CLIENT_ID,
+    clientSecret: process.env.REACT_APP_CLIENT_SECRET,
     refreshToken,
   });
 
@@ -32,9 +32,9 @@ app.post('/refresh', (req, res) => {
 app.post('/login', (req, res) => {
   const code = req.body.code;
   const spotifyApi = new SpotifyWebApi({
-    redirectUri: 'http://localhost:3000/',
-    clientId: 'cc515bd3b6d64031b087684733ebd448',
-    clientSecret: 'f4066951ebe1400fa17d999fa7bf80da',
+    redirectUri: process.env.REACT_APP_REDIRECT_URI,
+    clientId: process.env.REACT_APP_CLIENT_ID,
+    clientSecret: process.env.REACT_APP_CLIENT_SECRET,
   });
 
   spotifyApi
